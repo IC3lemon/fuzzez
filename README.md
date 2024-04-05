@@ -5,7 +5,7 @@ PPT - https://www.canva.com/design/DAGBh2oqDeU/WULS7LlvxEOvD_v8kVjOzA/edit?utm_c
 
 
 
-Ight so niggas listen
+Ight so listen chumps
 
 ## main Shit
 
