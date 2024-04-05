@@ -1,0 +1,10 @@
+---
+- name: Transfer Linux Kernel folder to nodes
+  hosts: linux
+  tasks:
+    - name: Copy Linux Kernel folder to remote nodes
+      ansible.builtin.copy:
+        src: {Local Location}
+        dest: /home/ansible/Kernel
+        remote_src: yes
+

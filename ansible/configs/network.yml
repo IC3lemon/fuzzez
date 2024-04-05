@@ -1,0 +1,43 @@
+---
+- name: Configure Syzkaller
+  hosts: Network
+
+  gather_facts: no
+  tasks:
+    - name: Copy Syzkaller configuration file
+      ansible.builtin.copy:
+        content: |
+          {
+            "target": "linux/amd64",
+            "http": "0.0.0.0:56741",
+            "workdir": "/home/crabsnk/Desktop/syzkaller/workdir",
+            "kernel_obj": "/home/crabsnk/Desktop/linux/linux-6.6.23",
+            "image": "/home/crabsnk/Desktop/linux/linux-6.6.23/img/bullseye.img",
+            "sshkey": "/home/crabsnk/Desktop/linux/linux-6.6.23/img/bullseye.id_rsa",
+            "syzkaller": "/home/crabsnk/Desktop/syzkaller",
+            "procs": 8,
+            "type": "qemu",
+            "vm": {
+              "count": 4,
+              "kernel": "/home/ansible/Kernel/arch/x86/boot/bzImage",
+              "cpu": 2,
+              "mem": 2048
+            }
+            "enable_syscalls":[
+	"socket",
+	"bind",
+	"connect",
+	"listen",
+	"getsockopt",
+	"sendmsg",
+	"shutdown",
+	"close"
+	]
+          }
+        dest: /home/ansible/config/network.cfg
+        owner: ansible
+        group: ansible
+
+    - name: Execute Syzkaller manager command
+      ansible.builtin.command: /home/ansible/syzkaller/bin/syz-manager -config=/home/ansible/config/network.cfg
+
