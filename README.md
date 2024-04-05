@@ -19,6 +19,7 @@ Ight so niggas listen
 1.
 > ### fuzz according to module selected.
 > ![image](https://github.com/IC3lemon/fuzzez/assets/150153966/0d3cc06a-1f5d-463b-9519-6704b20fe7c5)
+> 
 > according to option selected it executes the corresponding configs ka yml file on the webserver
 
 2.
