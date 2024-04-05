@@ -12,12 +12,14 @@ Ight so niggas listen
 > `fuzzez/launchapp.py` is the main app ka file, it has all the juice.\
 > `fuzzez/main.py` is the ui juice.\
 > `fuzzez/send_kernel.yml` sends the shit to ansible.
+> `fuzzez/ansi/configs/` contains individual yml files which on execution with ansi fuzz those individual modules
 
 ## pending tasks
 
 1.
-> ### ^ fuzz according to module selected.
+> ### fuzz according to module selected.
 > ![image](https://github.com/IC3lemon/fuzzez/assets/150153966/0d3cc06a-1f5d-463b-9519-6704b20fe7c5)
+> according to option selected it executes the corresponding configs ka yml file on the webserver
 
 2.
 > ### scrape syzkaller website and update ui.
