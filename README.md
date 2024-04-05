@@ -2,6 +2,9 @@
 
 ***
 PPT - https://www.canva.com/design/DAGBh2oqDeU/WULS7LlvxEOvD_v8kVjOzA/edit?utm_content=DAGBh2oqDeU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+
+
 Ight so niggas listen
 
 ## main Shit
