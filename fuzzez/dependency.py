@@ -33,7 +33,7 @@ if __name__ == "__main__":
     
     ver = ver("/home/crabsnk/Desktop/linux/Makefile")
     print(ver)
-    os.chdir("/home/crabsnk/Desktop/linux")
+    os.chdir("{folder_path}")
     os.system("pwd")
     os.system('curl -O  mirrors.edge.kernel.org/pub/linux/kernel/{}/{}'.format(str('v'+ver[0]+'.x'),'linux-'+ver+'.tar.gz'))
     os.system("tar -xf {a}".format(a = 'linux-'+ver+'.tar.gz'))
