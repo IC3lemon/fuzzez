@@ -1,5 +1,13 @@
 import filecmp
 import os
+import shutil
+
+def resolve(file_path, source_dir, destination_dir):
+     
+    # Copy the missing file from source to destination
+    file_addr =  os.path.join(destination_dir, os.path.relpath(file_path, source_dir))
+    print(f"resolved address: {file_addr}")
+    shutil.copy(file_path,file_addr)
 
 def compare_directories(dir1, dir2):
     # Walk through the directory trees and compare files
@@ -10,8 +18,13 @@ def compare_directories(dir1, dir2):
             file2 = os.path.join(dir2, os.path.relpath(file1, dir1))
             if not os.path.exists(file2):
                 print(f"File {filename} does not exist in directory {dir2}")
+                print(f"resolving...{filename} in {dir2}")
+                print(file1)
+                resolve(file1, dir1, dir2)
             elif not filecmp.cmp(file1, file2, shallow=False):
                 print(f"Differences found in file: {file1}")
+          
+            
                 
 def ver(fp):
     version_lines = []
@@ -36,8 +49,9 @@ if __name__ == "__main__":
     print("version is:",ver)
     os.chdir("/home/crabsnk/Desktop/linux")
     os.system("pwd")
-    os.system('curl -O  mirrors.edge.kernel.org/pub/linux/kernel/{}/{}'.format(str('v'+ver[0]+'.x'),'linux-'+ver+'.tar.gz'))
-    os.system("tar -xf {a}".format(a = 'linux-'+ver+'.tar.gz'))
+    if not os.path.exists("/home/crabsnk/Desktop/linux/{}".format('linux-'+ver)):
+    	os.system('curl -O  mirrors.edge.kernel.org/pub/linux/kernel/{}/{}'.format(str('v'+ver[0]+'.x'),'linux-'+ver+'.tar.gz'))
+    	os.system("tar -xf {a}".format(a = 'linux-'+ver+'.tar.gz'))
     directory1 = "/home/crabsnk/Desktop/linux/{}".format('linux-'+ver)
     directory2 = "/home/crabsnk/Desktop/linux/testcase"
 
